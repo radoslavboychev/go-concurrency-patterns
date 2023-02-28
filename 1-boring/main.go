@@ -6,6 +6,7 @@ import (
 	"time"
 )
 
+// function that prints a string and the loop index
 func boring(msg string) {
 	for i := 0; ; i++ {
 		fmt.Println(msg, i)
@@ -13,13 +14,19 @@ func boring(msg string) {
 	}
 }
 
+// most basic usage of goroutines
 func main() {
-	go boring("boring!")
+
+	// call the goroutine
+	go boring("boring!") //spawns a goroutine
 
 	// lets the main goroutine run forever
-	for {
-	}
+	// for {
+	// }
 
-
+	// ends the main goroutine 2 seconds after starting
+	fmt.Println("Listening")
+	time.Sleep(2 * time.Second)
+	fmt.Println("Leaving")
 
 }
