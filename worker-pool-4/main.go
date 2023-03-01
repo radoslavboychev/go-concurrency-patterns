@@ -15,6 +15,7 @@ type Result struct {
 	Status int
 }
 
+
 func crawl(wId int, jobs <-chan Site, results chan<- Result) {
 	for site := range jobs {
 		log.Printf("Worker ID: %d\n", wId)
@@ -26,6 +27,7 @@ func crawl(wId int, jobs <-chan Site, results chan<- Result) {
 	}
 }
 
+
 func main() {
 	fmt.Println("worker pools in Go")
 
@@ -35,6 +37,7 @@ func main() {
 	for w := 1; w <= 3; w++ {
 		go crawl(w, jobs, result)
 	}
+	
 
 	urls := []string{
 		"https://google.com",
